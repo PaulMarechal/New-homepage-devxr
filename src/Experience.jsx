@@ -6,7 +6,21 @@ import * as THREE from 'three';
 const imageUrls = [
     '/images/catacombes.webp',
     '/images/devxr_3D.webp',
-    '/images/paul_marechal.webp'
+    '/images/paul_marechal.webp', 
+    '/images/aerobay_search.webp',
+    '/images/back_devxr.webp',
+    '/images/game_devxr.webp',
+    '/images/paulmarechal.webp',
+    '/images/aerobay_search.webp',
+    '/images/vr_devxr.webp',
+    '/images/menu_devxr.webp',
+    '/images/cd_paulmarechal_second.webp',
+    '/images/cards_catacombes.webp',
+    '/images/display_rooms_catacombes.webp',
+    '/images/aerobay.webp',
+    '/images/cv_paulmarechal.webp',
+    '/images/menu_intranet.webp',
+    '/images/room_catacombes.webp',
 ];
 
 function ImageFacingPlane({ url, position, planePosition }) {
@@ -20,7 +34,7 @@ function ImageFacingPlane({ url, position, planePosition }) {
 
     return (
         <mesh position={position} ref={imageRef}>
-            <planeGeometry args={[1.5, 1]} />
+            <planeGeometry args={[1.7, 1]} />
             <meshBasicMaterial map={new THREE.TextureLoader().load(url)} />
         </mesh>
     );
