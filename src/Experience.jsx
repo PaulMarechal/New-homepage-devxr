@@ -23,6 +23,31 @@ const imageUrls = [
     '/images/room_catacombes.webp',
 ];
 
+function displayElementMenu(headerClick, displayDivElem){
+    const header_item =  document.querySelector(`.${headerClick}`)
+    const div_item = document.querySelector(`.${displayDivElem}`) 
+    const canvas = document.querySelector('#root')
+
+    header_item.addEventListener('click', () => {
+        console.log('header_item listener')
+        canvas.style.opacity = '0'
+        div_item.style.display = 'block'
+        setTimeout(() => {
+            div_item.style.opacity = '1'
+        }, 100);
+        setTimeout(() => {
+            canvas.style.display = 'none';
+        }, 550);    
+
+
+    })
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    displayElementMenu('work_item', 'project_body')
+})
+
+
 function ImageFacingPlane({ url, position, planePosition }) {
     const imageRef = useRef();
 
