@@ -38,7 +38,7 @@ header{
     text-align: center;     
 }
 
-.header_menu_item a{
+.header_menu_item p{
     text-decoration: none;
     color: #191919;
 }
@@ -47,7 +47,17 @@ header{
 .project_body{
     display: flex;
     position: absolute;
-    top: 70px;
+    width: 100%;
+    height: 90%;
+    top: 10%;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.project_body.visible {
+    display: block;
+    opacity: 1;
 }
 /* Accordeon menu */
 .page_texts{
@@ -64,6 +74,14 @@ header{
     text-align: left;
 }
 
+/* .page_card .page_content{
+    display: none; 
+}
+
+.page_card:first-of-type .page_content{
+    display: none; 
+} */
+
 .page_card .page_texts .page_bottom, .page_card .page_head {
     display: none;
 }
@@ -71,6 +89,13 @@ header{
 .page_card:first-of-type .page_texts .page_bottom {
     display: block;
 }
+
+.page_card:nth-child(1){background: #e6e7e9}
+.page_card:nth-child(2){background: #e0e0e0}
+.page_card:nth-child(3){background: #d4d4d4}
+.page_card:nth-child(4){background: #c7c7c7}
+.page_card:nth-child(5){background: #bdbdbd}
+
 .page_bottom{
     background-color: var(--white);
     width: calc(100vw - var(--classes-length)* 7vw);
