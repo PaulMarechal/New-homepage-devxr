@@ -63,11 +63,11 @@ function clickOnWorkItem(selector) {
     } 
 }
 
-// Appels de la fonction pour chaque élément cible
 clickOnWorkItem('.item_1');
 clickOnWorkItem('.item_2');
 clickOnWorkItem('.item_3');
 clickOnWorkItem('.item_4');
+clickOnWorkItem('.item_5');
 
 
 
