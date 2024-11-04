@@ -23,6 +23,7 @@ const imageUrls = [
     '/images/room_catacombes.webp',
 ];
 
+// Click on header items
 function displayElementMenu(headerClick, displayDivElem){
     const header_item =  document.querySelector(headerClick)
     const div_item = document.querySelector(displayDivElem) 
@@ -46,6 +47,21 @@ function displayElementMenu(headerClick, displayDivElem){
 document.addEventListener('DOMContentLoaded', () => {
     displayElementMenu('.work_item', '.project_body')
 })
+
+// Click on work 
+function clickOnWorkItem(){
+    const item_all = document.querySelectorAll('page_card')
+    
+    item_all.forEach(item => {
+        if(item_all.classList.contains('active')){
+            item_all.classList.remove('active')
+        }
+    })
+
+    item.addEventListener('click', () => {
+        item.classList.add('active')
+    })
+}
 
 
 function ImageFacingPlane({ url, position, planePosition }) {
