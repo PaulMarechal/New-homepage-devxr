@@ -49,25 +49,20 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 // Click on work 
-function clickOnWorkItem(selector) {
+function clickOnWorkItem() {
     const item_all = document.querySelectorAll('.page_card');
-    const item = document.querySelector(selector);
+    console.log(item_all); 
 
-    if (item) {
-        item_all.forEach(item => {
-            item.addEventListener('click', () => {
-                item_all.forEach(elem => elem.classList.remove('active'));
-                item.classList.add('active');
-            });
+    item_all.forEach(item => {
+        item.addEventListener('click', () => {
+            item_all.forEach(elem => elem.classList.remove('active'));
+            item.classList.add('active');
         });
-    } 
+    });
 }
 
-clickOnWorkItem('.item_1');
-clickOnWorkItem('.item_2');
-clickOnWorkItem('.item_3');
-clickOnWorkItem('.item_4');
-clickOnWorkItem('.item_5');
+clickOnWorkItem();
+
 
 
 
