@@ -49,19 +49,29 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 // Click on work 
-function clickOnWorkItem(){
-    const item_all = document.querySelectorAll('page_card')
-    
-    item_all.forEach(item => {
-        if(item_all.classList.contains('active')){
-            item_all.classList.remove('active')
-        }
-    })
+function clickOnWorkItem(selector) {
+    const item_all = document.querySelectorAll('.page_card');
+    const item = document.querySelector(selector);
 
-    item.addEventListener('click', () => {
-        item.classList.add('active')
-    })
+    if (item) {
+        item_all.forEach(item => {
+            item.addEventListener('click', () => {
+                item_all.forEach(elem => elem.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+    } else {
+        console.warn(`Élément avec le sélecteur "${selector}" non trouvé.`);
+    }
 }
+
+// Appels de la fonction pour chaque élément cible
+clickOnWorkItem('.item_1');
+clickOnWorkItem('.item_2');
+clickOnWorkItem('.item_3');
+clickOnWorkItem('.item_4');
+
+
 
 
 function ImageFacingPlane({ url, position, planePosition }) {

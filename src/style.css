@@ -76,15 +76,29 @@ header{
     text-align: left;
 }
 
-.page_card{
+.page_card .page_texts,
+.page_card .page_bottom,
+.page_card .page_head {
+    display: none;
+}
+
+.page_card {
     z-index: 0; 
     left: 0vw; 
     top: 0px; 
     flex: 0.3;
+    transition: flex .5s ease-out;
 }
 
-.active{
+/* Lorsque .page_card a la classe .active */
+.page_card.active {
     flex: 3;
+}
+
+.page_card.active .page_texts,
+.page_card.active .page_bottom,
+.page_card.active .page_head {
+    display: flex;
 }
 
 /* .page_card .page_content{
