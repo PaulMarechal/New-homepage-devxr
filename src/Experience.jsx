@@ -60,9 +60,7 @@ function clickOnWorkItem(selector) {
                 item.classList.add('active');
             });
         });
-    } else {
-        console.warn(`Élément avec le sélecteur "${selector}" non trouvé.`);
-    }
+    } 
 }
 
 // Appels de la fonction pour chaque élément cible

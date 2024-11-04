@@ -66,7 +66,8 @@ header{
     display: inline-flex;
 }
 
-.page_texts h1{
+
+.page_head h1{
     writing-mode: tb-rl;
     transform: rotate(-180deg);
     font-family: var(--font-arimo), sans-serif;
@@ -74,11 +75,13 @@ header{
     font-weight: 600;
     letter-spacing: -.025em;
     text-align: left;
+    bottom: 10vh;
+    position: relative;
 }
 
 .page_card .page_texts,
-.page_card .page_bottom,
-.page_card .page_head {
+.page_card .page_bottom, 
+.page_card.active .page_head {
     display: none;
 }
 
@@ -87,6 +90,7 @@ header{
     left: 0vw; 
     top: 0px; 
     flex: 0.3;
+    display: inline-flex;
     transition: flex .5s ease-out;
 }
 
@@ -96,8 +100,9 @@ header{
 }
 
 .page_card.active .page_texts,
+.page_card .page_texts h1,
 .page_card.active .page_bottom,
-.page_card.active .page_head {
+.page_card.active .page_head, .page_head {
     display: flex;
 }
 
@@ -109,7 +114,7 @@ header{
     display: none; 
 } */
 
-.page_card .page_texts .page_bottom, .page_card .page_head {
+.page_card .page_texts .page_bottom {
     display: none;
 }
 
