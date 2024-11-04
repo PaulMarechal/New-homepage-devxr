@@ -24,14 +24,14 @@ const imageUrls = [
 ];
 
 function displayElementMenu(headerClick, displayDivElem){
-    const header_item =  document.querySelector(`.${headerClick}`)
-    const div_item = document.querySelector(`.${displayDivElem}`) 
+    const header_item =  document.querySelector(headerClick)
+    const div_item = document.querySelector(displayDivElem) 
     const canvas = document.querySelector('#root')
 
     header_item.addEventListener('click', () => {
         console.log('header_item listener')
         canvas.style.opacity = '0'
-        div_item.style.display = 'block'
+        div_item.style.display = 'flex'
         setTimeout(() => {
             div_item.style.opacity = '1'
         }, 100);
@@ -44,7 +44,7 @@ function displayElementMenu(headerClick, displayDivElem){
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    displayElementMenu('work_item', 'project_body')
+    displayElementMenu('.work_item', '.project_body')
 })
 
 

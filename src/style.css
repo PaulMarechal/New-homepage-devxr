@@ -7,7 +7,8 @@ body,
     left: 0;
     width: 100%;
     height: 100%;
-    background: ivory;
+    margin: 0;
+    background: rgb(255, 255, 255);
 }
 
 /* Header */
@@ -39,6 +40,7 @@ header{
 }
 
 .header_menu_item p{
+    margin: 0 10px;
     text-decoration: none;
     color: #191919;
 }
@@ -49,7 +51,7 @@ header{
     position: absolute;
     width: 100%;
     height: 90%;
-    top: 10%;
+    top: 60px;
     display: none;
     opacity: 0;
     transition: opacity 0.5s ease;
