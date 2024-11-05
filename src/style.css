@@ -93,6 +93,11 @@ header{
     position: relative;
 }
 
+.page_head{
+    cursor: pointer; 
+    user-select: none;
+}
+
 .page_card .page_texts,
 .page_card .page_bottom, 
 .page_card.active .page_head {
@@ -118,6 +123,10 @@ header{
 .page_card.active .page_bottom,
 .page_card.active .page_head, .page_head {
     display: flex;
+}
+
+.page_content{
+    user-select: none;
 }
 
 /* .page_card .page_content{
@@ -158,7 +167,7 @@ header{
     background: #fff;
     border-radius: 20px;
     overflow: hidden;
-    top: 60px;
+    top: 110px;
     position: fixed;
     margin-left: 3%;
 }
@@ -184,9 +193,9 @@ header{
 
 .accordion-title span {
     font-weight: bold;
-    margin-right: 10px;
-    font-size: 10px; 
+    font-size: 20px; 
     color: #333;
+    margin: -50px 10px 0 -5px;
 }
 
 .accordion-item:hover{
