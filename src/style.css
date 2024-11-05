@@ -35,8 +35,18 @@ header{
 
 .header_menu_logo {
     flex: 20;              
-    padding: 10px;        
+    padding: 0px;        
     text-align: center;     
+}
+
+.header_menu_logo a{
+    background: url('https://devxr.fr/assets/images/logo/logo_devxr.png'); 
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-size: 17vh !important;
+    width: -webkit-fill-available;
+    height: 50px;
+    display: block;
 }
 
 .header_menu_item p{
@@ -175,6 +185,7 @@ header{
 .accordion-title span {
     font-weight: bold;
     margin-right: 10px;
+    font-size: 10px; 
     color: #333;
 }
 
