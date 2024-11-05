@@ -57,7 +57,11 @@ header{
     transition: opacity 0.5s ease;
 }
 
-.project_body.visible {
+.news_body{
+    display: none; 
+}
+
+.project_body.visible, .news_body.visible {
     display: block;
     opacity: 1;
 }
@@ -136,4 +140,63 @@ header{
     display: flex;
     color: var(--white);
     height: 100%;
+}
+
+/* Accordeon menu */
+.accordion {
+    width: 94%;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    top: 60px;
+    position: fixed;
+    margin-left: 3%;
+}
+
+.accordion-item {
+    margin: 2px 0;
+    border-top: 1px solid #bebebe;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: background-color 0.3s ease-out;
+}
+
+.accordion-title {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 20px;
+    font-size: 2.2em;
+    cursor: pointer;
+    margin: 2vh 1vh;
+    transition: background-color 0.3s ease-out;
+}
+
+.accordion-title span {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #333;
+}
+
+.accordion-item:hover{
+    background: #f2f2f2;
+}
+
+.accordion-content {
+    padding: 0 15px;
+    font-size: 0.95em;
+    color: #555;
+    background: #fff;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+}
+
+.accordion-content p {
+    margin: 0;
+}
+
+.accordion-item.active .accordion-content {
+    padding: 15px; 
+    max-height: 300px; 
 }

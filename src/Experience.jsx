@@ -23,35 +23,50 @@ const imageUrls = [
     '/images/room_catacombes.webp',
 ];
 
-// Click on header items
-function displayElementMenu(headerClick, displayDivElem){
-    const header_item =  document.querySelector(headerClick)
-    const div_item = document.querySelector(displayDivElem) 
-    const canvas = document.querySelector('#root')
+// Display elemement of menu 
+function displayElementMenu(headerClick, displayDivElem) {
+    const header_item = document.querySelector(headerClick);
+    const div_item = document.querySelector(displayDivElem);
+    const main_body = document.querySelector('.main_body');
+    const canvas = document.querySelector('#root');
+
+    const mainBodyChildrenAll = Array.from(main_body.children);
+
+    if (displayDivElem === ".news_body") {
+        div_item.style.height = `${window.innerHeight}px`;
+        div_item.style.width = `${window.innerWidth}px`;
+    }
 
     header_item.addEventListener('click', () => {
-        console.log('header_item listener')
-        canvas.style.opacity = '0'
-        div_item.style.display = 'flex'
+        mainBodyChildrenAll.forEach(mainBodyChildren => {
+            mainBodyChildren.style.opacity = '0'
+            mainBodyChildren.style.display = 'none'
+        })
+        canvas.style.opacity = '0';
+
+        div_item.style.display = 'flex';
         setTimeout(() => {
-            div_item.style.opacity = '1'
+            div_item.style.opacity = '1';
         }, 100);
+
         setTimeout(() => {
             canvas.style.display = 'none';
-        }, 550);    
-
-
-    })
+        }, 550);
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    displayElementMenu('.about_item', '.about_body')
     displayElementMenu('.work_item', '.project_body')
+    displayElementMenu('.services_item', '.services_body')
+    displayElementMenu('.news_item', '.news_body')
+    displayElementMenu('.contact_item', '.contact_body')
+
 })
 
 // Click on work 
 function clickOnWorkItem() {
     const item_all = document.querySelectorAll('.page_card');
-    console.log(item_all); 
 
     item_all.forEach(item => {
         item.addEventListener('click', () => {
@@ -64,7 +79,21 @@ function clickOnWorkItem() {
 clickOnWorkItem();
 
 
-
+// Accordeon menu 
+document.querySelectorAll('.accordion-title').forEach(item => {
+    item.addEventListener('click', () => {
+        const parent = item.parentNode;
+        const isActive = parent.classList.contains('active');
+        
+        document.querySelectorAll('.accordion-item').forEach(child => {
+            child.classList.remove('active');
+        });
+        
+        if (!isActive) {
+            parent.classList.add('active');
+        }
+    });
+});
 
 
 function ImageFacingPlane({ url, position, planePosition }) {
