@@ -1,6 +1,6 @@
 import { Text, Plane } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useState } from 'react';
 import * as THREE from 'three';
 
 const imageUrls = [
@@ -22,6 +22,11 @@ const imageUrls = [
     '/images/menu_intranet.webp',
     '/images/room_catacombes.webp',
 ];
+
+const videoUrls = [
+    'https://devxr.fr/assets/video/visite_guerinet_realite_virtuelle.mp4', 
+    'https://devxr.fr/assets/video/Vinyls_AR_second.mp4', 
+]
 
 // Display elemement of menu 
 function displayElementMenu(headerClick, displayDivElem) {
@@ -90,11 +95,12 @@ document.querySelectorAll('.accordion-title').forEach(item => {
     });
 });
 
-
+// Image facing
 function ImageFacingPlane({ url, position, planePosition }) {
     const imageRef = useRef();
 
     useFrame(() => {
+
         if (imageRef.current) {
             imageRef.current.lookAt(new THREE.Vector3(planePosition[0], imageRef.current.position.y, planePosition[2]));
         }
@@ -108,52 +114,103 @@ function ImageFacingPlane({ url, position, planePosition }) {
     );
 }
 
-function RotatingImagesAroundCircle({ images, planePosition }) {
+// Video facing
+function VideoFacingPlane({ url, position, planePosition }) {
+    const videoRef = useRef();
+    const [videoAspect, setVideoAspect] = useState(1);
+
+    // Crée un élément vidéo et calcule le ratio d’aspect
+    const videoElement = useMemo(() => {
+        const video = document.createElement("video");
+        video.src = url;
+        video.crossOrigin = "anonymous";
+        video.loop = true;
+        video.muted = true;
+        
+        // Ajuste le rapport d’aspect une fois que les métadonnées de la vidéo sont chargées
+        video.addEventListener("loadedmetadata", () => {
+            const aspect = video.videoWidth / video.videoHeight;
+            setVideoAspect(aspect);
+        });
+
+        video.play();
+        return video;
+    }, [url]);
+
+    const videoTexture = useMemo(() => new THREE.VideoTexture(videoElement), [videoElement]);
+
+    useFrame(() => {
+        if (videoRef.current) {
+            videoRef.current.lookAt(new THREE.Vector3(planePosition[0], videoRef.current.position.y, planePosition[2]));
+        }
+    });
+
+    return (
+        <mesh position={position} ref={videoRef}>
+            <planeGeometry args={[1.7 * videoAspect, 1.7]} />
+            <meshBasicMaterial map={videoTexture} />
+        </mesh>
+    );
+}
+
+
+
+function RotatingMediaAroundCircle({ images, videos, planePosition }) {
     const groupRef = useRef();
     const { camera } = useThree();
+
+    const mediaItems = [...images, ...videos]; 
 
     function getRandomPosition(min, max) {
         return Math.random() * (max - min) + min;
     }
 
     const positions = useMemo(() => {
-        const aspect = window.innerWidth / window.innerHeight; 
-        const vFov = (camera.fov * Math.PI) / 180; 
-        const height = 2 * Math.tan(vFov / 2) * Math.abs(camera.position.z); 
-        const width = height * aspect; 
+        const aspect = window.innerWidth / window.innerHeight;
+        const vFov = (camera.fov * Math.PI) / 180;
+        const height = 2 * Math.tan(vFov / 2) * Math.abs(camera.position.z);
+        const width = height * aspect;
 
-        const maxHeight = height / 2 - 0.5; 
-        const minHeight = -maxHeight; 
+        const maxHeight = height / 2 - 0.5;
+        const minHeight = -maxHeight;
 
-        return images.map(() => {
-            const x = getRandomPosition(-width / 2 + 1, width / 2 - 1); 
-            const y = getRandomPosition(minHeight, maxHeight); 
+        return mediaItems.map(() => {
+            const x = getRandomPosition(-width / 2 + 1, width / 2 - 1);
+            const y = getRandomPosition(minHeight, maxHeight);
             const z = getRandomPosition(-3, 3);
             return [x, y, z];
         });
-    }, [images.length, camera]);
+    }, [mediaItems.length, camera]);
 
     useFrame(({ clock }) => {
         if (groupRef.current) {
-            groupRef.current.rotation.y = clock.getElapsedTime() * 0.2; 
+            groupRef.current.rotation.y = clock.getElapsedTime() * 0.2;
         }
     });
 
     return (
         <group ref={groupRef}>
-            {images.map((url, index) => {
-                const angle = (index / images.length) * Math.PI * 2; 
+            {mediaItems.map((url, index) => {
+                const angle = (index / mediaItems.length) * Math.PI * 2;
+                const x = Math.cos(angle) * 3;
+                const z = Math.sin(angle) * 3;
+                const y = positions[index][1];
 
-                const x = Math.cos(angle) * 3; 
-                const z = Math.sin(angle) * 3; 
-                const y = positions[index][1]; 
+                const isVideo = url.endsWith(".mp4");
 
-                return (
+                return isVideo ? (
+                    <VideoFacingPlane
+                        key={index}
+                        url={url}
+                        position={[x, y, z]}
+                        planePosition={planePosition}
+                    />
+                ) : (
                     <ImageFacingPlane
                         key={index}
                         url={url}
-                        position={[x, y, z]} 
-                        planePosition={planePosition} 
+                        position={[x, y, z]}
+                        planePosition={planePosition}
                     />
                 );
             })}
@@ -161,13 +218,14 @@ function RotatingImagesAroundCircle({ images, planePosition }) {
     );
 }
 
+
 export default function Experience() {
     const { camera } = useThree();
-    const planePosition = [0, 0, 7]; 
+    const planePosition = [0, 0, 7];
 
     return (
         <>
-            <RotatingImagesAroundCircle images={imageUrls} planePosition={planePosition} />
+            <RotatingMediaAroundCircle images={imageUrls} videos={videoUrls} planePosition={planePosition} />
             <Plane position={planePosition} args={[2.5, 2]} />
             <Text
                 position={[0, 0, 0]}
