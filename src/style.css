@@ -67,8 +67,14 @@ header{
     transition: opacity 0.5s ease;
 }
 
-.news_body{
+.news_body {
     display: none; 
+    height: 100vh; 
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
 }
 
 .project_body.visible, .news_body.visible {
@@ -219,4 +225,128 @@ header{
 .accordion-item.active .accordion-content {
     padding: 15px; 
     max-height: 300px; 
+}
+
+/* Contact page */
+.contact_body {
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    gap: 20px;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.contact_text {
+    flex: 1;
+    font-family: Arial, sans-serif;
+    max-width: 45%;
+}
+
+.contact_text h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.contact_text p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.contact_button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #fff;
+    background-color: #000;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.contact_button:hover {
+    background-color: #444;
+}
+
+.contact_images {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 50%;
+    align-items: flex-start;
+    position: relative;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+}
+
+.contact_images .image {
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+.contact_images .image-1 {
+    width: 300px;
+    height: 220px;
+    position: absolute;
+    top: 3vh;
+    left: 9vh;
+}
+
+.contact_images .image-2 {
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    top: 23vh;
+    left: 32vh;
+}
+
+.contact_images .image-3 {
+    width: 350px;
+    height: 200px;
+    position: absolute;
+    top: 44vh;
+    left: 4vh;
+}
+
+.contact_images .image-4 {
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    top: 52vh;
+    left: 59vh;
+}
+
+.contact_images .image-5 {
+    width: 342px;
+    height: 250px;
+    position: absolute;
+    top: 17vh;
+    left: 67vh;
+}
+
+.contact_images .image-6 {
+    width: 249px;
+    height: 250px;
+    position: absolute;
+    top: 57vh;
+    left: 24vh;
+}
+
+.contact_images .image-7 {
+    width: 130px;
+    height: 250px;
+    position: absolute;
+    top: 4vh;
+    left: 81vh;
+}
+
+.contact_images .image:hover {
+    transform: scale(1.05);
 }

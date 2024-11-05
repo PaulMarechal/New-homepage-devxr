@@ -32,11 +32,6 @@ function displayElementMenu(headerClick, displayDivElem) {
 
     const mainBodyChildrenAll = Array.from(main_body.children);
 
-    if (displayDivElem === ".news_body") {
-        div_item.style.height = `${window.innerHeight}px`;
-        div_item.style.width = `${window.innerWidth}px`;
-    }
-
     header_item.addEventListener('click', () => {
         mainBodyChildrenAll.forEach(mainBodyChildren => {
             mainBodyChildren.style.opacity = '0'
