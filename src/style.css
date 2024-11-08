@@ -134,7 +134,7 @@ header{
 
 .page_head span{
     position: absolute; 
-    bottom: 0; 
+    bottom: 3vh; 
     text-align: center;
 }
 
@@ -183,6 +183,31 @@ header{
     user-select: none;
 }
 
+.item_1 .page_content {
+    position: relative;
+    background: url('../public/images/clean_services_home.webp');
+    /* background: url('../public/images/screen_aerobay.webp'); */
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover;
+    width: -webkit-fill-available;
+    z-index: 1;
+    margin-left: 16vh;
+}
+
+.item_1 .page_content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit; 
+    filter: brightness(0.4); 
+    z-index: -1; 
+    background-size: cover; 
+    background-position: center;
+}
 /* .page_card .page_content{
     display: none; 
 }
@@ -202,6 +227,8 @@ header{
 .page_card:first-of-type .page_texts .page_bottom {
     display: block;
 }
+
+.page_bottom:nth-child(1){margin-left: 1vh; color: #fff; }
 
 .page_card:nth-child(1){background: #e6e7e9}
 .page_card:nth-child(2){background: #e0e0e0}
@@ -410,4 +437,18 @@ header{
 /* Work Page */
 .vr_exemple_icons{
     display: flex;
+}
+
+.vr_exemple_icons div{
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 5px 20px;
+    text-align: justify;
+}
+
+.vr_exemple_icons div span{
+    text-align: center;
 }
