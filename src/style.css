@@ -228,7 +228,33 @@ header{
     display: block;
 }
 
-.page_bottom:nth-child(1){margin-left: 1vh; color: #fff; }
+.first_tab{margin-left: 1vh; color: #fff!important; }
+.first_tab h2{font-size: 6vh;}
+.first_tab div {margin-top: 5vh; display: flex;}
+
+.first_tab div span h4{font-size: 4vh;}
+.first_tab div span {
+    flex: 1;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(4px);
+    padding: 11px;
+    border: .5px solid #424242;
+    border-radius: 14px;
+    margin: 0 5vh;
+}
+
+.first_tab div span:nth-child(2) {
+    top: 9vh;
+    position: relative;
+}
+
+#last_child_classique{
+    bottom: 2vh;
+    position: fixed;
+    /* font-size: 2vh; */
+    text-align: center;
+    width: max-content;
+}
 
 .page_card:nth-child(1){background: #e6e7e9}
 .page_card:nth-child(2){background: #e0e0e0}
