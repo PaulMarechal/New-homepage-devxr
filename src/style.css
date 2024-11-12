@@ -60,10 +60,11 @@ header{
 
 .header_menu_item {
     flex: 1;              
-    padding: 10px;       
+    margin: 10px;       
     text-align: center;  
     cursor: pointer; 
     user-select: none;
+    transition: all .2s ease-out;
 }
 
 .header_menu_logo {
@@ -219,6 +220,10 @@ header{
     display: none; 
 } */
 
+.item_5 div span h1{
+    bottom: 16vh;
+}
+
 .page_bottom {
     margin-left: 11vh;
 }
@@ -231,11 +236,34 @@ header{
     display: block;
 }
 
+.mixte_text{
+    display: flex;
+}
+
+.mixte_text_first{
+    flex: 2;
+    margin-right: 3vh;
+    text-align: justify;
+}
+
+.mixte_text_first div p{
+    margin-block-start: -0.5rem;
+}
+
+.mixte_video_second{
+    flex: 1;
+}
+
+.mixte_text div video {
+    width: 43vh;
+    margin-left: 1.5vh;
+}
+
 .first_tab{margin-left: 1vh; color: #fff!important; }
 .first_tab h2{font-size: 6vh;}
 .first_tab div {margin-top: 5vh; display: flex;}
 
-.first_tab div span h4{font-size: 4vh;}
+.first_tab div span h4, .third_tab div span h4, .fifth_tab > h4, .mixte_text_first div h4{font-size: 4vh;}
 .first_tab div span {
     flex: 1;
     backdrop-filter: blur(10px);
@@ -384,6 +412,7 @@ header{
 
 #fdc_qr_v2_1, #guerinet_qr_v2_1{
     border-radius: 20px;
+    transition: all .5s ease-out;
     /* border: 2px solid #333333; */
 }
 
@@ -586,7 +615,7 @@ header{
     -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
     margin: 10px;
-    padding: 5px 20px;
+    padding: 5px 15px;
     text-align: justify;
 }
 

@@ -31,6 +31,7 @@ const videoUrls = [
 
 // Display elemement of menu 
 function displayElementMenu(headerClick, displayDivElem) {
+    const header_menu_item = document.querySelectorAll('.header_menu_item')
     const header_item = document.querySelector(headerClick);
     const div_item = document.querySelector(displayDivElem);
     const main_body = document.querySelector('.main_body');
@@ -39,6 +40,12 @@ function displayElementMenu(headerClick, displayDivElem) {
     const mainBodyChildrenAll = Array.from(main_body.children);
 
     header_item.addEventListener('click', () => {
+        header_menu_item.forEach(item => {
+            item.style.borderBottom = '0px solid #fff';
+        });
+
+        header_item.style.borderBottom = '1px solid #191919';
+        
         mainBodyChildrenAll.forEach(mainBodyChildren => {
             mainBodyChildren.style.opacity = '0'
             mainBodyChildren.style.display = 'none'
