@@ -108,7 +108,10 @@ header{
     justify-content: center;
     align-items: center;
     user-select: none;
+    font-size: 4vh;
 }
+
+.news_body span{margin-left: 30vh;}
 
 .project_body.visible, .news_body.visible {
     display: block;
@@ -256,6 +259,9 @@ header{
     width: max-content;
 }
 
+.second_tab h2{font-size: 6vh;}
+.second_tab div h4{font-size: 4vh;}
+
 .page_card:nth-child(1){background: #e6e7e9}
 .page_card:nth-child(2){background: #e0e0e0}
 .page_card:nth-child(3){background: #d4d4d4}
@@ -270,6 +276,45 @@ header{
     display: flex;
     color: var(--white);
     height: 100%;
+}
+
+.display_flex_second_tab{
+    display: flex;
+}
+
+.display_flex_second_tab div:first-child{
+    flex: 1;
+    padding-right: 3vh;
+}
+
+.display_flex_second_tab div:nth-child(2){
+    flex: 1;
+    margin-right: 0 3vh;
+}
+
+.display_flex_second_tab div h4{
+    margin-bottom: 0;
+}
+
+.display_flex_second_tab div p{
+    margin-top: 0.5vh;
+    text-align: justify;
+}
+
+.img_env_3D_work{
+    display: flex;
+    position: fixed;
+    bottom: 0; 
+}
+
+.img_env_3D_work img{
+    flex: 1; 
+    width: 310px; 
+    height: 162px;
+}
+
+.display_flex_second_tab video {
+    width: 60vh;
 }
 
 /* Accordeon menu */

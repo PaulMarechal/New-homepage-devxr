@@ -21,6 +21,7 @@ const imageUrls = [
     '/images/cv_paulmarechal.webp',
     '/images/menu_intranet.webp',
     '/images/room_catacombes.webp',
+    '/images/clean_services_home.webp',
 ];
 
 const videoUrls = [
