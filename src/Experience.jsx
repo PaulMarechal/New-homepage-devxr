@@ -7,7 +7,6 @@ const imageUrls = [
     '/images/catacombes.webp',
     '/images/devxr_3D.webp',
     '/images/paul_marechal.webp', 
-    '/images/aerobay_search.webp',
     '/images/back_devxr.webp',
     '/images/game_devxr.webp',
     '/images/paulmarechal.webp',
@@ -22,11 +21,14 @@ const imageUrls = [
     '/images/menu_intranet.webp',
     '/images/room_catacombes.webp',
     '/images/clean_services_home.webp',
+    '/images/aero_helico.png',
+
 ];
 
 const videoUrls = [
     'https://devxr.fr/assets/video/visite_guerinet_realite_virtuelle.mp4', 
     'https://devxr.fr/assets/video/Vinyls_AR_second.mp4', 
+    '../video/catas_web.mp4'
 ]
 
 // Display elemement of menu 
@@ -212,7 +214,7 @@ function RotatingMediaAroundCircle({ images, videos, planePosition }) {
 
     const mediaItems = [...images, ...videos]; 
 
-    function getRandomPosition(min, max) {
+    function getRandomPosition(min, max) {        
         return Math.random() * (max - min) + min;
     }
 
@@ -226,7 +228,7 @@ function RotatingMediaAroundCircle({ images, videos, planePosition }) {
         const minHeight = -maxHeight;
 
         return mediaItems.map(() => {
-            const x = getRandomPosition(-width / 2 + 1, width / 2 - 1);
+            const x = getRandomPosition(-width / 2 + -2, width / 2 - 0);
             const y = getRandomPosition(minHeight, maxHeight);
             const z = getRandomPosition(-3, 3);
             return [x, y, z];
@@ -269,6 +271,45 @@ function RotatingMediaAroundCircle({ images, videos, planePosition }) {
     );
 }
 
+function LogoText() {
+    return (
+        <group position={[0, 0, 0]}>
+            <Text
+                fontSize={0.8}
+                font={'../font/bebas_neue/BebasNeue-Regular.woff'}
+                color="black"
+                anchorX="center"
+                anchorY="middle"
+                position={[-0.25, 0, 0]}
+            >
+                D
+            </Text>
+
+            <Text
+                fontSize={0.5} 
+                font={'../font/bebas_neue/BebasNeue-Regular.woff'}
+                color="black"
+                anchorX="left"
+                anchorY="middle"
+                position={[-0.1, -0.08, 0]} 
+            >
+                ev
+            </Text>
+
+            <Text
+                fontSize={0.8}
+                font={'../font/bebas_neue/BebasNeue-Regular.woff'}
+                color="black"
+                anchorX="left"
+                anchorY="middle"
+                position={[0.3, 0, 0]} 
+            >
+                XR
+            </Text>
+        </group>
+    );
+}
+
 
 export default function Experience() {
     const { camera } = useThree();
@@ -278,15 +319,8 @@ export default function Experience() {
         <>
             <RotatingMediaAroundCircle images={imageUrls} videos={videoUrls} planePosition={planePosition} />
             <Plane position={planePosition} args={[2.5, 2]} />
-            <Text
-                position={[0, 0, 0]}
-                fontSize={0.5}
-                color="black"
-                anchorX="center"
-                anchorY="middle"
-            >
-                DevXR
-            </Text>
+            <LogoText/>
+
         </>
     );
 }
