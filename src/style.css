@@ -317,6 +317,76 @@ header{
     width: 60vh;
 }
 
+.text_display_ra{
+    flex: 2;
+}
+
+.video_display_ra{
+    flex: 1;
+}
+
+.video_display_ra{
+    display: -webkit-inline-box;
+    margin: 3vh;
+}
+
+.title_catacombes_page{
+    font-size: 6vh;
+}
+
+.text_display_ra h4{
+    font-size: 4vh;
+}
+
+.video_display_ra div:nth-child(2){
+    width: 200px;
+    margin: 4vh 2vh;
+}
+
+.video_display_ra div video{
+    width: 25vh;
+}
+
+.video_display_ra div img{
+    width: -webkit-fill-available;
+    margin: 1vh;
+}
+
+.ra_display_elem{
+    display: inline-flex;
+}
+
+.text_display_ra span, .text_display_ra div{
+    text-align: justify;
+}
+
+.icons_differents_video_ra{
+    display: flex;
+    margin: 5vh 0;
+}
+
+.icons_differents_video_ra div{
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 1vh;
+    padding: 1vh 0;
+    height: -webkit-fill-available;
+    transition: all .5s ease-out;
+}
+
+.icons_differents_video_ra div:hover{
+    background: rgba( 255, 255, 255, 0.25 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+}
+
+#fdc_qr_v2_1, #guerinet_qr_v2_1{
+    border-radius: 20px;
+    /* border: 2px solid #333333; */
+}
+
 /* Accordeon menu */
 .accordion {
     width: 94%;

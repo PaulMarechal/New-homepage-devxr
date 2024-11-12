@@ -96,6 +96,44 @@ document.querySelectorAll('.accordion-title').forEach(item => {
     });
 });
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    const scan_qr_ra = document.getElementById('scan_qr_ra');
+    const scan_vinyl_ra = document.getElementById('scan_vinyl_ra');
+    const web_page_ra = document.getElementById('web_page_ra');
+    const video_phone_ra = document.getElementById('video_phone_ra');
+    
+    const fdc_qr_v2_1 = document.getElementById('fdc_qr_v2_1');
+    const guerinet_qr_v2_1 = document.getElementById('guerinet_qr_v2_1');
+
+    scan_qr_ra.addEventListener('click', () => {
+        video_phone_ra.setAttribute('src', '../video/qr_catas.mp4');
+    
+        fdc_qr_v2_1.setAttribute('src', 'https://devxr.fr/assets/images/catacombes/qr_code_fdc.webp');
+        guerinet_qr_v2_1.setAttribute('src', 'https://devxr.fr/assets/images/catacombes/qr_code_guerinet.webp');
+
+        fdc_qr_v2_1.style.opacity = '1'
+        guerinet_qr_v2_1.style.opacity = '1'
+    });
+
+    scan_vinyl_ra.addEventListener('click', () => {
+        video_phone_ra.setAttribute('src', '../video/vinyls_ra.mp4');
+
+        fdc_qr_v2_1.setAttribute('src', '../images/qrCode.png')
+        guerinet_qr_v2_1.style.opacity = '0'
+    });
+
+    web_page_ra.addEventListener('click', () => {
+        video_phone_ra.setAttribute('src', '../video/web_ra.mp4');
+
+        fdc_qr_v2_1.setAttribute('src', '../images/qrCatacombes_ar.png')
+        guerinet_qr_v2_1.style.opacity = '0'
+    });
+});
+
+
+
+
 // Image facing
 function ImageFacingPlane({ url, position, planePosition }) {
     const imageRef = useRef();
