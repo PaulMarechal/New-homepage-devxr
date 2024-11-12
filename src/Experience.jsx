@@ -52,7 +52,12 @@ function displayElementMenu(headerClick, displayDivElem) {
         })
         canvas.style.opacity = '0';
 
-        div_item.style.display = 'flex';
+        if(displayDivElem === '.about_body'){
+            div_item.style.display = 'grid';
+        } else {
+            div_item.style.display = 'flex';
+        }
+        
         setTimeout(() => {
             div_item.style.opacity = '1';
         }, 100);

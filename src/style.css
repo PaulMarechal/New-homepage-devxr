@@ -622,3 +622,32 @@ header{
 .vr_exemple_icons div span{
     text-align: center;
 }
+
+/* About page */
+.timeline{
+    display: inline-flex;
+}
+
+.timeline-item{
+    padding: 0 2vh 0 1vh;
+    border-right: 1px solid #333333;
+    margin: 0 2vh 0 1vh;
+    width: 44vh;
+}
+
+.timeline-item img{
+    width: 40vh;
+}
+
+.title_about{
+    display: flex;
+    margin: 6vh 0 3vh 0;
+}
+
+#title_about_div{flex: 2; }
+
+#text_about_title{flex: 6; }
+
+.last_text_about{
+    text-align: center;
+}
