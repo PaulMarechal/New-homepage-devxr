@@ -1,7 +1,11 @@
 import { Text, Plane } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
-import { useRef, useMemo, useState } from 'react';
+import { useRef, useMemo, useState, useEffect } from 'react';
 import * as THREE from 'three';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const imageUrls = [
     '/images/catacombes.webp',
@@ -336,6 +340,13 @@ function LogoText() {
 export default function Experience() {
     const { camera } = useThree();
     const planePosition = [0, 0, 7];
+
+    const scrollContainer = document.querySelector(".timeline");
+
+    scrollContainer.addEventListener("wheel", (evt) => {
+        evt.preventDefault();
+        scrollContainer.scrollLeft += evt.deltaY;
+    });
 
     return (
         <>

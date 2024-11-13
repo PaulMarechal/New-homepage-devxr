@@ -625,17 +625,17 @@ header{
 
 /* About page */
 .timeline{
-    display: inline-flex;
-    overflow-x: scroll;
-
+    overflow-x: hidden;
+    display: flex;
 }
 
 .timeline-item{
     padding: 0 2vh 0 1vh;
     border-right: 1px solid #333333;
     margin: 0 2vh 0 1vh;
-    width: 44vh;
-    min-width: 44vh;
+    width: 47vh;
+    min-width: 47vh;
+    scroll-snap-align: start;
 }
 
 .timeline-item img{
@@ -667,7 +667,7 @@ header{
 .devxr_info_begining div img{
     width: 39vh;
     height: fit-content;
-    margin: 2vh;
+    margin: 4vh 2vh 2vh 2vh;
 }
 
 #text_about_devxr{display: block; margin: 3vh;}
