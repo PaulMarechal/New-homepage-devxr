@@ -8,31 +8,31 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const imageUrls = [
-    '/images/catacombes.webp',
-    '/images/devxr_3D.webp',
-    '/images/paul_marechal.webp', 
-    '/images/back_devxr.webp',
-    '/images/game_devxr.webp',
-    '/images/paulmarechal.webp',
-    '/images/aerobay_search.webp',
-    '/images/vr_devxr.webp',
-    '/images/menu_devxr.webp',
-    '/images/cd_paulmarechal_second.webp',
-    '/images/cards_catacombes.webp',
-    '/images/display_rooms_catacombes.webp',
-    '/images/aerobay.webp',
-    '/images/cv_paulmarechal.webp',
-    '/images/menu_intranet.webp',
-    '/images/room_catacombes.webp',
-    '/images/clean_services_home.webp',
-    '/images/aero_helico.png',
+    'https://devxr.fr/site_classique/images/catacombes.webp',
+    'https://devxr.fr/site_classique/images/devxr_3D.webp',
+    'https://devxr.fr/site_classique/images/paul_marechal.webp', 
+    'https://devxr.fr/site_classique/images/back_devxr.webp',
+    'https://devxr.fr/site_classique/images/game_devxr.webp',
+    'https://devxr.fr/site_classique/images/paulmarechal.webp',
+    'https://devxr.fr/site_classique/images/aerobay_search.webp',
+    'https://devxr.fr/site_classique/images/vr_devxr.webp',
+    'https://devxr.fr/site_classique/images/menu_devxr.webp',
+    'https://devxr.fr/site_classique/images/cd_paulmarechal_second.webp',
+    'https://devxr.fr/site_classique/images/cards_catacombes.webp',
+    'https://devxr.fr/site_classique/images/display_rooms_catacombes.webp',
+    'https://devxr.fr/site_classique/images/aerobay.webp',
+    'https://devxr.fr/site_classique/images/cv_paulmarechal.webp',
+    'https://devxr.fr/site_classique/images/menu_intranet.webp',
+    'https://devxr.fr/site_classique/images/room_catacombes.webp',
+    'https://devxr.fr/site_classique/images/clean_services_home.webp',
+    'https://devxr.fr/site_classique/images/aero_helico.png',
 
 ];
 
 const videoUrls = [
     'https://devxr.fr/assets/video/visite_guerinet_realite_virtuelle.mp4', 
     'https://devxr.fr/assets/video/Vinyls_AR_second.mp4', 
-    '../video/catas_web.mp4'
+    'https://devxr.fr/site_classique/video/catas_web.mp4'
 ]
 
 function displayElementMenu(headerClick, displayDivElem) {
