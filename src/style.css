@@ -708,3 +708,8 @@ header{
 #mail_icon_bottom:hover a svg{
     fill: #8e8e8e;
 }
+
+.window_size{
+    width: 100%;
+    height: 100%;
+}
