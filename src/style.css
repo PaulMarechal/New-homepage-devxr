@@ -626,6 +626,8 @@ header{
 /* About page */
 .timeline{
     display: inline-flex;
+    overflow-x: scroll;
+
 }
 
 .timeline-item{
@@ -633,6 +635,7 @@ header{
     border-right: 1px solid #333333;
     margin: 0 2vh 0 1vh;
     width: 44vh;
+    min-width: 44vh;
 }
 
 .timeline-item img{
@@ -644,10 +647,28 @@ header{
     margin: 6vh 0 3vh 0;
 }
 
-#title_about_div{flex: 2; }
+#title_about_div{flex: 3; }
 
 #text_about_title{flex: 6; }
 
 .last_text_about{
     text-align: center;
 }
+
+.devxr_info_begining{
+    width: 100vh;
+}
+
+.devxr_info_begining div{
+    width: 130vh;
+    display: flex;
+}
+
+.devxr_info_begining div img{
+    width: 39vh;
+    height: fit-content;
+    margin: 2vh;
+}
+
+#text_about_devxr{display: block; margin: 3vh;}
+
