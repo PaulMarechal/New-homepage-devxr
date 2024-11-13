@@ -139,7 +139,7 @@ header{
 
 .page_head span{
     position: absolute; 
-    bottom: 3vh; 
+    bottom: 0vh; 
     text-align: center;
 }
 
@@ -678,8 +678,8 @@ header{
 /* Mail Icon */
 #mail_icon_bottom a{
     position: fixed;
-    bottom: 1.5vw;
-    right: 1.5vw;
+    bottom: 2vw;
+    right: 2vw;
     padding: .6vw;
     display: flex;
     place-items: center;

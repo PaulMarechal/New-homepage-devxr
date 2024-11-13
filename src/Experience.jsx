@@ -345,8 +345,17 @@ export default function Experience() {
 
     scrollContainer.addEventListener("wheel", (evt) => {
         evt.preventDefault();
-        scrollContainer.scrollLeft += evt.deltaY;
+        
+        const shoot = true;
+        
+        if (shoot) {
+            scrollContainer.scrollLeft += evt.deltaY / 4;  
+        } else {
+            // Par défaut, défilement normal
+            scrollContainer.scrollLeft += evt.deltaY;
+        }
     });
+    
 
     return (
         <>
