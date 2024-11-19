@@ -617,13 +617,14 @@ header{
 }
 
 .vr_exemple_icons div{
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, .25);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
-    margin: 10px;
-    padding: 5px 15px;
+    margin: 10px 5px;
+    padding: 5px 11px;
     text-align: justify;
+    height: 30vh;
 }
 
 .vr_exemple_icons div span{
@@ -651,7 +652,7 @@ header{
 
 .title_about{
     display: flex;
-    margin: 6vh 0 3vh 0;
+    margin: 6vh 0 0 0;
 }
 
 #title_about_div{flex: 3; }
